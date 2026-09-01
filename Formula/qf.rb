@@ -5,21 +5,21 @@
 class Qf < Formula
   desc "CLI tool for collecting test results for Qualflare"
   homepage "https://github.com/qualflare/qualflare-cli"
-  version "0.1.18"
+  version "0.1.19"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/qualflare/qualflare-cli/releases/download/v0.1.18/qf_0.1.18_darwin_amd64.tar.gz"
-      sha256 "008a51301127c584e10a3b3fc4fe91e44995bcfebd9f73a41a163dc6c1f53325"
+      url "https://github.com/qualflare/qualflare-cli/releases/download/v0.1.19/qf_0.1.19_darwin_amd64.tar.gz"
+      sha256 "8ebcc6140417654b3208fa3d8c53ebe031d1e5c8426bee763488c381206f7ac4"
 
       define_method(:install) do
         bin.install "qf"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/qualflare/qualflare-cli/releases/download/v0.1.18/qf_0.1.18_darwin_arm64.tar.gz"
-      sha256 "dab2fc308a3bc1ba6ab00937dd4f6ca3c0fd3c8dc3a0c26a9b0a30c0d98a26e2"
+      url "https://github.com/qualflare/qualflare-cli/releases/download/v0.1.19/qf_0.1.19_darwin_arm64.tar.gz"
+      sha256 "4d062c102e41a5babd35695818d191985ec19b816d77d91f58b495a99d5739e3"
 
       define_method(:install) do
         bin.install "qf"
@@ -29,15 +29,15 @@ class Qf < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/qualflare/qualflare-cli/releases/download/v0.1.18/qf_0.1.18_linux_amd64.tar.gz"
-      sha256 "69b82b69fa28cac9461a1c4f9c1c6503c7f3f5b9051af44a54246cbd89632040"
+      url "https://github.com/qualflare/qualflare-cli/releases/download/v0.1.19/qf_0.1.19_linux_amd64.tar.gz"
+      sha256 "5e01c1b910d14c8e8e3f9026aab9e05c9cfc6c641b6382d33df7d8631cee3b73"
       define_method(:install) do
         bin.install "qf"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/qualflare/qualflare-cli/releases/download/v0.1.18/qf_0.1.18_linux_arm64.tar.gz"
-      sha256 "0e46bba7d36bd05356b14cc5d25802c2529d78fb7919ae4b051136de3af45525"
+      url "https://github.com/qualflare/qualflare-cli/releases/download/v0.1.19/qf_0.1.19_linux_arm64.tar.gz"
+      sha256 "71a3541f577f0f6e937a23c6a5c0eba5171477fee51dcdf349495c1c2b40ff4b"
       define_method(:install) do
         bin.install "qf"
       end
