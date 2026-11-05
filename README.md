@@ -17,33 +17,33 @@ brew install qf
 
 ## What's in this tap
 
-| Formula | Description |
-|---------|-------------|
+| Cask | Description |
+|------|-------------|
 | `qf` | CLI for uploading test results to Qualflare |
+| `qualflare-go` | Native `go test` reporter for Qualflare |
+| `qualflare-maestro` | Native Maestro reporter for Qualflare |
 
-## Formulas
+## Casks
 
 ### qf
 
-The `qf` CLI parses test results from 19+ frameworks (Jest, pytest, Go testing, Playwright, Cypress, JUnit, and more) and uploads them to your [Qualflare](https://qualflare.com) dashboard.
+The `qf` CLI parses test results from 27 frameworks and 4 generic formats (JUnit XML, CTRF, Allure and Qualflare JSON) and uploads them to your [Qualflare](https://qualflare.com) project.
 
 ```bash
-qf upload results.xml
+qf login myapp                  # saves a project access token (qfp_…) under the name "myapp"; reads QF_TOKEN or prompts
+qf myapp collect results.xml    # uploads the results; the format is auto-detected
 qf version
-qf --help
 ```
 
-Full docs: [github.com/Qualflare/qualflare-cli](https://github.com/Qualflare/qualflare-cli)
+Docs: [docs.qualflare.com/docs/cli](https://docs.qualflare.com/docs/cli)
 
-## Automating formula updates
+### qualflare-go and qualflare-maestro
 
-Formula files in this tap are currently updated manually after each CLI release. To automate this via goreleaser:
+Reporters that run `go test` or `maestro test` and write a `qualflare-results` folder, which `qf <name> collect` uploads. Setup: [Go](https://docs.qualflare.com/docs/reporters/go) and [Maestro](https://docs.qualflare.com/docs/reporters/maestro) in the Qualflare docs.
 
-1. Create a GitHub personal access token (PAT) with `contents:write` permission scoped to this repository.
-2. Add it as a secret named `HOMEBREW_TAP_TOKEN` in the `qualflare-cli` repository settings.
-3. Inject it in `.github/workflows/release.yml` alongside `GITHUB_TOKEN`.
+## Updates
 
-Once wired up, goreleaser will regenerate `Formula/qf.rb` automatically on every new CLI release tag.
+The casks are updated automatically by goreleaser on each release tag of the tool.
 
 ## License
 
